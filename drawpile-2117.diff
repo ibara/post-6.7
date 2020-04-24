@@ -1,0 +1,74 @@
+Index: Makefile
+===================================================================
+RCS file: /cvs/ports/graphics/drawpile/Makefile,v
+retrieving revision 1.25
+diff -u -p -r1.25 Makefile
+--- Makefile	8 Dec 2019 22:48:23 -0000	1.25
++++ Makefile	24 Apr 2020 17:39:45 -0000
+@@ -1,7 +1,7 @@
+ # $OpenBSD: Makefile,v 1.25 2019/12/08 22:48:23 bcallah Exp $
+ 
+ COMMENT =	collaborative drawing program
+-DISTNAME =	drawpile-2.1.15
++DISTNAME =	drawpile-2.1.17
+ CATEGORIES =	graphics x11
+ 
+ HOMEPAGE =	https://drawpile.net/
+@@ -13,9 +13,9 @@ EXTRACT_SUFX =	.tar.gz
+ # GPLv3+
+ PERMIT_PACKAGE =	Yes
+ 
+-WANTLIB += ${COMPILER_LIBCXX} KF5Archive KF5DNSSD Qt5Core Qt5Gui
+-WANTLIB += Qt5Multimedia Qt5Network Qt5Sql Qt5Svg Qt5Widgets c
+-WANTLIB += gif m microhttpd miniupnpc sodium vpx
++WANTLIB += ${COMPILER_LIBCXX} KF5Archive KF5DNSSD Qt5Core Qt5DBus
++WANTLIB += Qt5Gui Qt5Multimedia Qt5Network Qt5Sql Qt5Svg Qt5Widgets
++WANTLIB += c gif m microhttpd miniupnpc qt5keychain sodium vpx
+ 
+ MASTER_SITES =	https://drawpile.net/files/src/
+ 
+@@ -28,6 +28,7 @@ LIB_DEPENDS =	devel/kf5/karchive \
+ 		multimedia/libvpx \
+ 		net/miniupnp/miniupnpc \
+ 		security/libsodium \
++		security/qtkeychain \
+ 		www/libmicrohttpd \
+ 		x11/qt5/qtmultimedia \
+ 		x11/qt5/qtsvg
+@@ -39,5 +40,9 @@ RUN_DEPENDS =	devel/desktop-file-utils \
+ CONFIGURE_ARGS =	-DCMAKE_CXX_FLAGS="${CXXFLAGS} -I${LOCALBASE}/include"
+ 
+ NO_TEST =	Yes
++
++# This needs to be fixed...
++post-configure:
++	sed -i 's,-lQt5::DBus,-lQt5DBus,g' ${WRKBUILD}/build.ninja
+ 
+ .include <bsd.port.mk>
+Index: distinfo
+===================================================================
+RCS file: /cvs/ports/graphics/drawpile/distinfo,v
+retrieving revision 1.17
+diff -u -p -r1.17 distinfo
+--- distinfo	8 Dec 2019 22:48:23 -0000	1.17
++++ distinfo	24 Apr 2020 17:39:45 -0000
+@@ -1,2 +1,2 @@
+-SHA256 (drawpile-2.1.15.tar.gz) = NmJaQFdOdqxBRc7cLXUgOBAOcVJj49/Rk19am8Nry3A=
+-SIZE (drawpile-2.1.15.tar.gz) = 2531195
++SHA256 (drawpile-2.1.17.tar.gz) = 7n97qB5vGpw8MidfhDZNEHE8JOwEDajLSxPD6muwkIY=
++SIZE (drawpile-2.1.17.tar.gz) = 2521585
+Index: pkg/PLIST
+===================================================================
+RCS file: /cvs/ports/graphics/drawpile/pkg/PLIST,v
+retrieving revision 1.19
+diff -u -p -r1.19 PLIST
+--- pkg/PLIST	8 Dec 2019 22:48:23 -0000	1.19
++++ pkg/PLIST	24 Apr 2020 17:39:45 -0000
+@@ -1,6 +1,6 @@
+ @comment $OpenBSD: PLIST,v 1.19 2019/12/08 22:48:23 bcallah Exp $
+ bin/drawpile
+-@bin bin/drawpile-2.1.15
++@bin bin/drawpile-2.1.17
+ @bin bin/drawpile-srv
+ @man man/man1/drawpile-srv.1
+ share/applications/net.drawpile.drawpile.desktop

@@ -1,0 +1,30 @@
+Index: Makefile
+===================================================================
+RCS file: /cvs/ports/lang/gawk/Makefile,v
+retrieving revision 1.39
+diff -u -p -r1.39 Makefile
+--- Makefile	18 Dec 2019 00:36:46 -0000	1.39
++++ Makefile	24 Apr 2020 17:39:08 -0000
+@@ -2,8 +2,9 @@
+ 
+ COMMENT=	GNU awk
+ 
+-V=		5.0.1
++V=		5.1.0
+ DISTNAME=	gawk-$V
++EXTRACT_SUFX=	.tar.xz
+ CATEGORIES=	lang
+ MASTER_SITES=	${MASTER_SITE_GNU:=gawk/}
+ 
+Index: distinfo
+===================================================================
+RCS file: /cvs/ports/lang/gawk/distinfo,v
+retrieving revision 1.19
+diff -u -p -r1.19 distinfo
+--- distinfo	18 Dec 2019 00:36:46 -0000	1.19
++++ distinfo	24 Apr 2020 17:39:08 -0000
+@@ -1,2 +1,2 @@
+-SHA256 (gawk-5.0.1.tar.gz) = YlvzcY4lqE3ESGE11ctTiBdGgjYscBB/0T8hVy9WA7s=
+-SIZE (gawk-5.0.1.tar.gz) = 5981609
++SHA256 (gawk-5.1.0.tar.xz) = z1/qSsVmX9UXGvRxa6qy7/x2MGqVcpiNW6EHjxljgr0=
++SIZE (gawk-5.1.0.tar.xz) = 3154564

@@ -1,0 +1,63 @@
+Index: Makefile
+===================================================================
+RCS file: /cvs/ports/sysutils/bfs/Makefile,v
+retrieving revision 1.12
+diff -u -p -r1.12 Makefile
+--- Makefile	26 Feb 2020 12:38:02 -0000	1.12
++++ Makefile	24 Apr 2020 17:38:11 -0000
+@@ -5,7 +5,7 @@ CATEGORIES =	sysutils
+ 
+ GH_ACCOUNT =	tavianator
+ GH_PROJECT =	bfs
+-GH_TAGNAME =	1.6
++GH_TAGNAME =	1.7
+ 
+ MAINTAINER =	Brian Callahan <bcallah@openbsd.org>
+ 
+@@ -17,10 +17,9 @@ WANTLIB += c
+ DEBUG_PACKAGES =	${BUILD_PACKAGES}
+ 
+ USE_GMAKE =	Yes
+-MAKE_FLAGS =	CFLAGS="${CFLAGS} -DBFS_HAS_SYS_ACL=0"
+ 
+ FAKE_FLAGS =	DESTDIR=
+ 
+-NO_TEST =	Yes
++TEST_TARGET =	check
+ 
+ .include <bsd.port.mk>
+Index: distinfo
+===================================================================
+RCS file: /cvs/ports/sysutils/bfs/distinfo,v
+retrieving revision 1.10
+diff -u -p -r1.10 distinfo
+--- distinfo	26 Feb 2020 12:38:02 -0000	1.10
++++ distinfo	24 Apr 2020 17:38:11 -0000
+@@ -1,2 +1,2 @@
+-SHA256 (bfs-1.6.tar.gz) = g3FyDWIMP5DYGXThqgv8bYIHCqKGycOQGfmPntWXIvs=
+-SIZE (bfs-1.6.tar.gz) = 117290
++SHA256 (bfs-1.7.tar.gz) = oGDj8Q4AN0pVxv4V/KPVZi3tglck+A+KFwGXlrwzOpU=
++SIZE (bfs-1.7.tar.gz) = 120455
+Index: patches/patch-tests_sh
+===================================================================
+RCS file: patches/patch-tests_sh
+diff -N patches/patch-tests_sh
+--- /dev/null	1 Jan 1970 00:00:00 -0000
++++ patches/patch-tests_sh	24 Apr 2020 17:38:11 -0000
+@@ -0,0 +1,16 @@
++$OpenBSD$
++
++touch -h is a GNU extension
++
++Index: tests.sh
++--- tests.sh.orig
+++++ tests.sh
++@@ -815,7 +815,7 @@ function make_times() {
++     touch -t 199112140001 "$1/b"
++     touch -t 199112140002 "$1/c"
++     ln -s a "$1/l"
++-    touch -h -t 199112140003 "$1/l"
+++    touch -t 199112140003 "$1/l"
++     touch -t 199112140004 "$1"
++ }
++ make_times "$TMP/times"
