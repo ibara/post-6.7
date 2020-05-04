@@ -1,0 +1,28 @@
+Index: Makefile
+===================================================================
+RCS file: /cvs/ports/editors/focuswriter/Makefile,v
+retrieving revision 1.31
+diff -u -p -r1.31 Makefile
+--- Makefile	25 Feb 2020 02:27:37 -0000	1.31
++++ Makefile	30 Apr 2020 18:09:52 -0000
+@@ -2,7 +2,7 @@
+ 
+ COMMENT =	simple, distraction-free writing environment
+ 
+-DISTNAME =	focuswriter-1.7.5
++DISTNAME =	focuswriter-1.7.6
+ CATEGORIES =	editors
+ EXTRACT_SUFX =	-src.tar.bz2
+ 
+Index: distinfo
+===================================================================
+RCS file: /cvs/ports/editors/focuswriter/distinfo,v
+retrieving revision 1.17
+diff -u -p -r1.17 distinfo
+--- distinfo	25 Feb 2020 02:27:37 -0000	1.17
++++ distinfo	30 Apr 2020 18:09:52 -0000
+@@ -1,2 +1,2 @@
+-SHA256 (focuswriter-1.7.5-src.tar.bz2) = DGvPz73aS9T3LLqStnLhG2CvBJEXIyMlZj2QpJXv2KU=
+-SIZE (focuswriter-1.7.5-src.tar.bz2) = 10311298
++SHA256 (focuswriter-1.7.6-src.tar.bz2) = NPV2pJyf5krtrWbgLvr8KchAtsPdyYpC2H39pJlxBUE=
++SIZE (focuswriter-1.7.6-src.tar.bz2) = 10311965

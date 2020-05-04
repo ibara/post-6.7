@@ -1,0 +1,52 @@
+Index: Makefile
+===================================================================
+RCS file: /cvs/ports/textproc/nfoview/Makefile,v
+retrieving revision 1.29
+diff -u -p -r1.29 Makefile
+--- Makefile	12 Apr 2020 14:30:21 -0000	1.29
++++ Makefile	30 Apr 2020 18:38:49 -0000
+@@ -1,7 +1,7 @@
+ # $OpenBSD: Makefile,v 1.29 2020/04/12 14:30:21 bcallah Exp $
+ 
+ COMMENT =	simple viewer for NFO files
+-MODPY_EGG_VERSION =	1.27.1
++MODPY_EGG_VERSION =	1.28
+ DISTNAME =	nfoview-${MODPY_EGG_VERSION}
+ CATEGORIES =	textproc x11
+ 
+@@ -22,7 +22,7 @@ BUILD_DEPENDS =	devel/gettext,-tools
+ 
+ RUN_DEPENDS =	devel/desktop-file-utils \
+ 		devel/py-gobject3${MODPY_FLAVOR} \
+-		fonts/terminus-font \
++		fonts/cascadia-code \
+ 		x11/gtk+3,-guic
+ 
+ # pygobject GTK3 introspection (not provided by indirect dependencies)
+Index: distinfo
+===================================================================
+RCS file: /cvs/ports/textproc/nfoview/distinfo,v
+retrieving revision 1.16
+diff -u -p -r1.16 distinfo
+--- distinfo	12 Apr 2020 14:30:21 -0000	1.16
++++ distinfo	30 Apr 2020 18:38:49 -0000
+@@ -1,2 +1,2 @@
+-SHA256 (nfoview-1.27.1.tar.gz) = apEAfb13D3BBZRc1GLtK08dkCCp7uOjJaoPBsPDzKjw=
+-SIZE (nfoview-1.27.1.tar.gz) = 60211
++SHA256 (nfoview-1.28.tar.gz) = 7fazzRWlBzl3nJrGJJrxAzFVjdCFZiM21RZBhCq7fT4=
++SIZE (nfoview-1.28.tar.gz) = 61164
+Index: pkg/PLIST
+===================================================================
+RCS file: /cvs/ports/textproc/nfoview/pkg/PLIST,v
+retrieving revision 1.12
+diff -u -p -r1.12 PLIST
+--- pkg/PLIST	12 Apr 2020 14:30:21 -0000	1.12
++++ pkg/PLIST	30 Apr 2020 18:38:49 -0000
+@@ -55,6 +55,7 @@ share/locale/fi/LC_MESSAGES/nfoview.mo
+ share/locale/fr/LC_MESSAGES/nfoview.mo
+ share/locale/he/LC_MESSAGES/nfoview.mo
+ share/locale/hu/LC_MESSAGES/nfoview.mo
++share/locale/nl/LC_MESSAGES/nfoview.mo
+ share/locale/pl/LC_MESSAGES/nfoview.mo
+ share/locale/pt_BR/LC_MESSAGES/nfoview.mo
+ share/locale/pt_PT/
